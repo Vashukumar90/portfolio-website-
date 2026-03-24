@@ -1,1 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D8R3ZJHGWQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-D8R3ZJHGWQ');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio - vasu kumar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* --- GLOBAL STYLES --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+font-family: 'Inter', sans-serif;
+background-color: #f2f2f2;
+background-image: url("https://images.unsplash.com/photo-1533628635777-112b2239b1c7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGdyZXklMjBiYWNrZ3JvdW5kfGVufDB8MHwwfHx8MA%3D%3D");
+color: #1a1a1a;
+line-height: 1.6;
+overflow-x: hidden;
+padding-top: 100px; /* Space for the fixed navbar */
+}
+/* --- NAVIGATION BAR --- */
+.top-nav {
+position: fixed;
+top: 20px;
+left: 50%;
+transform: translateX(-50%);
+background: #ffffff;
+padding: 15px 40px;
+border-radius: 50px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+z-index: 1000;
+display: flex;
+align-items: center;
+gap: 30px;
+width: auto;
+max-width: 90%;
+}
+.nav-item {
+text-decoration: none;
+color: #333;
+font-weight: 600;
+font-size: 0.95rem;
+transition: all 0.3s ease;
+position: relative;
+display: flex;
+align-items: center;
+gap: 8px;
+}
+.nav-item:hover {
+color: #000;
+transform: translateY(-2px);
+}
+.nav-item.name {
+font-weight: 800;
+font-size: 1.1rem;
+margin-right: 10px;
+}
+.nav-item::after {
+content: '';
+position: absolute;
+width: 0;
+height: 2px;
+bottom: -5px;
+left: 0;
+background-color: #000;
+transition: width 0.3s ease;
+}
+.nav-item:hover::after {
+width: 100%;
+}
+/* --- SECTION 1: HERO --- */
+.hero-section { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
+.hero-title { font-size: 18vw; font-weight: 900; line-height: 0.9; letter-spacing: -0.05em; margin-bottom: 10px; color: #000; }
+.hero-subtitle { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-top: -20px; }
+/* --- SECTION 2: ABOUT --- */
+.about-section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 80px 5%; border-top: 1px solid #ddd; }
+.about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width:1200px; width: 100%; align-items: center; }
+.about-text h1 { font-size: 4rem; font-weight: 900; margin-bottom: 20px; line-height: 1; }
+.about-text p { font-size: 1.2rem; color: #333; margin-bottom: 30px; font-weight: 400; }
+.contact-info { display: flex; flex-direction: column; gap: 15px; margin-top: 40px; }
+.contact-item { display: flex; align-items: center; gap: 15px; font-size: 1.1rem; }
+.about-image img { max-width: 100%; height: auto; filter: grayscale(100%); border: 8px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 20px; }
+/* --- SECTION 3: RESUME (TEXT) --- */
+.resume-section { min-height: 100vh; padding: 80px 5%; border-top: 1px solid #ddd; }
+.resume-container { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1200px; margin: 0 auto; }
+.experience-col h2, .education-col h2, .skills-col h2 { font-size: 3rem; font-weight: 900; margin-bottom: 40px; }
+.timeline-item { position: relative; padding-left: 30px; margin-bottom: 40px; border-left: 2px solid #ccc; }
+.timeline-item::before { content: ''; position: absolute; left: -6px; top: 5px; width: 10px; height: 10px; background: #000; border-radius: 50%; }
+.job-title { font-weight: 800; font-size: 1.3rem; text-transform: uppercase; }
+.job-role { font-weight: 600; font-size: 1.1rem; margin-bottom: 5px; }
+.job-date { font-weight: 400; color: #555; margin-bottom: 10px; display: block; }
+.job-desc { font-size: 1rem; color: #333; }
+.right-col { display: flex; flex-direction: column; gap: 60px; }
+.edu-item { margin-bottom: 30px; }
+.school-name { font-weight: 800; font-size: 1.2rem; }
+.school-loc { color: #555; margin-bottom: 5px; }
+.course-name { font-weight: 600; }
+.edu-date { color: #555; font-size: 0.9rem; }
+/* SKILLS GRID STYLE */
+.skills-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+.skill-logo-img { width: 100%; height: 80px; object-fit: contain; background: white; padding: 10px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+.skill-logo-img:hover { transform: scale(1.1); }
+/* --- NEW SECTION: VISUAL RESUME (3D) --- */
+.visual-resume-section { min-height: 100vh; padding: 100px 5%; background-color: #e0e0e0; display: flex; flex-direction: column; align-items: center; justify-content: center; perspective: 1500px; overflow: hidden; position: relative; }
+.resume-card-wrapper { position: relative; width: 100%; max-width: 1000px; transform: rotateY(-10deg) rotateX(5deg); transform-style: preserve-3d; transition: transform 0.5s ease; cursor: pointer; box-shadow: 20px 20px 60px rgba(0,0,0,0.2); }
+.resume-card-wrapper:hover { transform: rotateY(0deg) rotateX(0deg) scale(1.02); }
+.resume-card { background: white; display: flex; box-shadow: 0 0 20px rgba(0,0,0,0.1); position: relative; z-index: 2; }
+.resume-left { background: #1a1a1a; color: white; width: 35%; padding: 40px 30px; display: flex; flex-direction: column; gap: 30px; }
+.resume-left h3 { font-size: 1.5rem; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px; }
+.resume-left p { font-size: 0.9rem; line-height: 1.6; color: #ccc; margin-bottom: 20px; }
+.resume-left .info-group { margin-bottom: 20px; }
+.resume-left .info-label { font-weight: 700; font-size: 0.8rem; text-transform: uppercase; color: #888; margin-bottom: 5px; display: block; }
+.resume-left .info-text { font-size: 0.9rem; }
+.software-icons { display: flex; gap: 10px; margin-top: 10px; }
+.software-icons i { font-size: 1.5rem; }
+.resume-right { background: white; color: #333; width: 65%; padding: 40px; }
+.resume-right h2 { font-size: 2rem; font-weight: 900; text-transform: uppercase; margin-bottom: 30px; color: #000; }
+.exp-item { margin-bottom: 25px; border-left: 3px solid #ddd; padding-left: 20px; }
+.exp-item h4 { font-size: 1.1rem; font-weight: 800; text-transform: uppercase; }
+.exp-item .role { font-size: 0.9rem; font-weight: 600; color: #555; margin-bottom: 5px; display: block; }
+.exp-item .date { font-size: 0.8rem; color: #888; margin-bottom: 10px; display: block; font-style: italic; }
+.exp-item ul { list-style: none; }
+.exp-item ul li { font-size: 0.85rem; color: #555; margin-bottom: 5px; position: relative; padding-left: 15px; }
+.exp-item ul li::before { content: '•'; position: absolute; left: 0; color: #000; }
+.resume-footer { background: #333; color: white; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box; position: absolute; bottom: 0; left: 0; }
+.qr-placeholder { width: 60px; height: 60px; background: white; display: flex; align-items: center; justify-content: center; color: black; font-size: 0.7rem; text-align: center; }
+/* --- SECTION: TABLE OF CONTENTS --- */
+.toc-section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 50px 5%; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; background-color: #E8E8D8; background-image: url(''); background-size: cover; background-position: center; }
+.toc-container { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; max-width: 1400px; width: 100%; align-items: center; }
+.toc-title-box { background-image: url(''); background-size: cover; padding: 20px; }
+.toc-main-text { font-family: 'Archivo Black', sans-serif; font-size: 7vw; line-height: 0.85; color: #2C3E30; text-transform: uppercase; word-break: break-word; }
+.toc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+.toc-btn { background-color: #2C3E30; color: #E8E8D8; padding: 30px 20px; border-radius: 20px; text-align: center; text-decoration: none; transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 120px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+.toc-btn:hover { transform: translateY(-5px); background-color: #1a261d; }
+.toc-btn span { font-size: 1.5rem; font-weight: 800; text-transform: uppercase; line-height: 1.4; letter-spacing: 1px; }
+.toc-btn .number { font-size: 1rem; opacity: 0.7; margin-bottom: 5px; font-weight: 600; }
+/* --- NEW SECTION: WORK PROJECTS (FULL SCREEN) --- */
+.work-project-section {
+height: 100vh;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 0 5%;
+background-color: #fff;
+border-bottom: 1px solid #ddd;
+position: relative;
+overflow: hidden;
+}
+.work-project-container {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 60px;
+max-width: 1400px;
+width: 100%;
+align-items: center;
+z-index: 2;
+}
+.work-content h2 {
+font-size: 4rem;
+font-weight: 900;
+text-transform: uppercase;
+margin-bottom: 20px;
+line-height: 1;
+}
+.work-content p {
+font-size: 1.3rem;
+color: #555;
+margin-bottom: 40px;
+line-height: 1.6;
+}
+.work-btn {
+display: inline-block;
+padding: 15px 40px;
+background: #000;
+color: #fff;
+text-decoration: none;
+font-weight: 700;
+text-transform: uppercase;
+border-radius: 50px;
+transition: all 0.3s ease;
+}
+.work-btn:hover {
+background: #333;
+transform: translateY(-5px);
+box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.work-image-wrapper {
+position: relative;
+width: 100%;
+height: 500px;
+border-radius: 20px;
+overflow: hidden;
+box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+.work-image-wrapper img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.5s ease;
+}
+.work-image-wrapper:hover img {
+transform: scale(1.05);
+}
+/* Alternating Layouts */
+.work-project-section:nth-child(even) .work-project-container {
+direction: rtl; /* Flip layout for even items */
+}
+.work-project-section:nth-child(even) .work-content {
+direction: ltr; /* Reset text direction */
+}
+/* --- SECTION: PROJECTS (VIDEO) --- */
+.projects-section { padding: 100px 5%; text-align: center; position: relative; background-image: url(''); background-size: cover; background-attachment: fixed; }
+.section-header { position: relative; margin-bottom: 60px; display: inline-block; }
+.section-title { font-size: 4rem; font-weight: 900; position: relative; z-index: 2; }
+.section-number { position: absolute; top: -40px; left: 50%; transform: translateX(-50%); font-size: 12rem; font-weight: 900; color: transparent; -webkit-text-stroke: 2px #ccc; z-index: 1; opacity: 0.5; }
+.video-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.phone-mockup { width: 300px; height: 600px; background: #000; border-radius: 40px; padding: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); position: relative; overflow: hidden; border: 4px solid #333; }
+.phone-mockup video { width: 100%; height: 100%; object-fit: cover; border-radius: 30px; }
+/* --- SECTION: SPORTS --- */
+.sports-section { padding: 80px 0; background-color: #f2f2f2; }
+.sports-banner { background-color: #111; color: #fff; padding: 30px 0; margin-bottom: 40px; text-align: center; }
+.sports-banner h2 { font-size: 3.5rem; font-style: italic; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; }
+.sports-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; padding: 0 2%; }
+.sports-item { width: 100%; height: 350px; overflow: hidden; position: relative; }
+.sports-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+.sports-item:hover img { transform: scale(1.05); }
+/* --- SECTION: MUSIC POSTERS --- */
+.music-section { padding: 100px 5%; position: relative; background-image: url(''); background-size: cover; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+.music-header { text-align: right; margin-bottom: 50px; position: relative; }
+.music-title { font-size: 5rem; font-weight: 900; text-transform: uppercase; line-height: 0.9; color: #000; }
+.arrow-svg { position: absolute; bottom: -20px; right: 20%; width: 150px; height: 100px; stroke: #000; stroke-width: 3; fill: none; stroke-linecap: round; }
+.music-collage { position: relative; width: 100%; max-width: 1000px; height: 600px; }
+.poster-img { position: absolute; box-shadow: 10px 10px 30px rgba(0,0,0,0.2); transition: transform 0.3s ease, z-index 0s; cursor: pointer; }
+.poster-img:hover { transform: scale(1.05) !important; z-index: 100 !important; }
+.p1 { width: 200px; top: 100px; left: 50px; transform: rotate(-5deg); }
+.p2 { width: 220px; top: 0px; left: 200px; transform: rotate(2deg); z-index: 2; }
+.p3 { width: 200px; top: 150px; left: 380px; transform: rotate(-3deg); }
+.p4 { width: 230px; top: 250px; left: 350px; transform: rotate(5deg); z-index: 3; }
+.p5 { width: 200px; top: 100px; left: 550px; transform: rotate(4deg); }
+.p6 { width: 180px; top: 350px; left: 150px; transform: rotate(-8deg); }
+.p7 { width: 200px; top: 300px; left: 600px; transform: rotate(-2deg); }
+.p8 { width: 150px; bottom: 20px; right: 50px; transform: rotate(10deg); border-radius: 50%; }
+/* --- UI DESIGN TITLE --- */
+.ui-design-title-section { height: 100vh; display: flex; justify-content: center; align-items: center; background: linear-gradient(135deg, #2C3E30 0%, #5D7A63 100%); color: #E8E8D8; }
+.ui-design-text { font-family: 'Inter', sans-serif; font-size: 10vw; font-weight: 800; text-transform: uppercase; letter-spacing: 5px; text-align: center; }
+.ui-design-text span { font-weight: 300; opacity: 0.6; margin: 0 20px; }
+/* --- FULL SCREEN PROJECTS --- */
+.fullscreen-project { height: 100vh; width: 100%; display: flex; justify-content: center; align-items: center; background-color: #000; position: relative; overflow: hidden; border-bottom: 1px solid #333; }
+.fullscreen-video-wrapper { width: 100%; height: 100%; position: relative; }
+.fullscreen-video-wrapper video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.play-btn-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(5px); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid rgba(255,255,255,0.5); z-index: 10; }
+.play-btn-overlay:hover { background: rgba(255, 255, 255, 0.4); transform: translate(-50%, -50%) scale(1.1); }
+.play-btn-overlay i { font-size: 40px; color: white; margin-left: 5px; }
+.play-btn-overlay.hidden { opacity: 0; pointer-events: none; }
+.fullscreen-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+/* --- WEBSITE DEVELOPMENT SECTION --- */
+.web-dev-title-section { height: 100vh; display: flex; justify-content: center; align-items: center; background-color: #E8E8D8; color: #2C3E30; padding: 0 5%; }
+.web-dev-text { font-family: 'Inter', sans-serif; font-size: 8.5vw; font-weight: 900; text-transform: uppercase; letter-spacing: -2px; display: flex; align-items: center; gap: 20px; line-height: 1; justify-content: center; text-align: center; }
+.web-dev-text span { font-weight: 300; opacity: 0.4; font-size: 5vw; }
+.project-showcase { padding: 100px 5%; background-color: #2C3E30; color: #E8E8D8; display: flex; align-items: center; justify-content: center; gap: 80px; min-height: 100vh; }
+.project-info { flex: 1; max-width: 700px; }
+.project-info h3 { font-size: 2rem; font-weight: 400; margin-bottom: 10px; opacity: 0.8; }
+.project-info h2 { font-size: 5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 40px; line-height: 1; }
+.project-info p { font-size: 1.3rem; line-height: 1.8; margin-bottom: 30px; opacity: 0.9; font-weight: 300; }
+.tools-section { margin-top: 50px; display: flex; align-items: center; gap: 20px; font-size: 1.5rem; font-weight: 600; opacity: 0.7; }
+.tools-icons { display: flex; gap: 20px; font-size: 2rem; }
+.project-image-container { flex: 1.5; display: flex; justify-content: center; align-items: flex-end; }
+.laptop-mockup { width: 100%; max-width: 900px; border-radius: 10px 10px 0 0; box-shadow: 0 30px 60px rgba(0,0,0,0.6); border: 1px solid #333; }
+.wooden-stand { width: 100%; max-width: 1000px; height: 180px; background: #8B5A2B; background-image: linear-gradient(45deg, #8B5A2B 25%, #A06B35 25%, #A06B35 50%, #8B5A2B 50%, #8B5A2B 75%, #A06B35 75%, #A06B35 100%); background-size: 20px 20px; border-radius: 5px; margin-top: -10px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+.main-pages-section { padding: 150px 5%; background-color: #E8E8D8; color: #2C3E30; }
+.gallery-header { margin-bottom: 80px; }
+.gallery-header h3 { font-size: 2rem; font-weight: 400; margin-bottom: 20px; }
+.gallery-header h2 { font-size: 6rem; font-weight: 900; text-transform: uppercase; line-height: 1; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 60px; }
+.gallery-item { background: white; padding: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.15); transition: transform 0.3s; min-height: 500px; display: flex; align-items: center; justify-content: center; }
+.gallery-item:hover { transform: translateY(-10px); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.animaliz-gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px; position: relative; }
+.animaliz-center-laptops { grid-column: 1 / -1; display: flex; justify-content: center; align-items: center; gap: 40px; background: #E67E22; padding: 60px; border-radius: 40px; margin: 40px 0; }
+.animaliz-laptop { width: 500px; border-radius: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+/* --- APP DEVELOPMENT SECTION --- */
+.app-dev-title-section { height: 100vh; display: flex; justify-content: center; align-items: center; background: linear-gradient(135deg, #2C3E30 0%, #5D7A63 100%); color: #E8E8D8; }
+.app-dev-text { font-family: 'Inter', sans-serif; font-size: 8.5vw; font-weight: 900; text-transform: uppercase; letter-spacing: -2px; display: flex; align-items: center; gap: 20px; line-height: 1; justify-content: center; text-align: center; }
+.app-dev-text span { font-weight: 300; opacity: 0.4; font-size: 5vw; }
+.app-showcase { padding: 100px 5%; background-color: #E8E8D8; color: #2C3E30; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; text-align: center; }
+.app-showcase.green-bg { background-color: #2C3E30; color: #E8E8D8; }
+.app-title { font-size: 6rem; font-weight: 900; text-transform: uppercase; margin-bottom: 30px; line-height: 1; }
+.app-desc { font-size: 1.5rem; max-width: 900px; margin: 0 auto 60px auto; line-height: 1.6; font-weight: 300; }
+.phone-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 60px; }
+.phone-frame { width: 280px; height: 580px; background: #000; border-radius: 40px; padding: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); border: 4px solid #333; position: relative; }
+.phone-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 30px; }
+.app-tools { font-size: 2rem; font-weight: 600; opacity: 0.8; margin-top: 20px; display: flex; align-items: center; gap: 20px; }
+.app-tools i { font-size: 2.5rem; }
+/* --- CERTIFICATE SECTION --- */
+.cert-title-section { height: 100vh; display: flex; justify-content: center; align-items: center; background-color: #E8E8D8; color: #2C3E30; padding: 0 5%; }
+.cert-text { font-family: 'Inter', sans-serif; font-size: 8.5vw; font-weight: 900; text-transform: uppercase; letter-spacing: -2px; display: flex; align-items: center; gap: 20px; line-height: 1; justify-content: center; text-align: center; }
+.cert-text span { font-weight: 300; opacity: 0.4; font-size: 5vw; }
+.cert-gallery-section { padding: 100px 5%; background-color: #f2f2f2; display: flex; flex-direction: column; align-items: center; gap: 50px; }
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; width: 100%; max-width: 1400px; }
+.cert-item { background: white; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s; }
+.cert-item:hover { transform: translateY(-5px); }
+.cert-item img { width: 100%; height: auto; display: block; }
+/* --- FULL SCREEN VIDEO SECTIONS --- */
+.fullscreen-video-interactive { height: 100vh; width: 100%; position: relative; background: #000; overflow: hidden; border-bottom: 1px solid #333; }
+.fullscreen-video-interactive video { width: 100%; height: 100%; object-fit: cover; display: block; cursor: pointer; }
+.interactive-play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 120px; height: 120px; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid rgba(255,255,255,0.6); z-index: 20; }
+.interactive-play-btn:hover { background: rgba(255, 255, 255, 0.4); transform: translate(-50%, -50%) scale(1.1); }
+.interactive-play-btn i { font-size: 50px; color: white; margin-left: 8px; }
+.interactive-play-btn.hidden { opacity: 0; pointer-events: none; }
+/* Responsive */
+@media (max-width: 900px) {
+.top-nav { width: 95%; padding: 10px 20px; gap: 15px; }
+.nav-item { font-size: 0.8rem; }
+.nav-item.name { font-size: 0.9rem; }
+.resume-card { flex-direction: column; }
+.resume-left, .resume-right { width: 100%; }
+.resume-card-wrapper { transform: none; }
+.toc-container { grid-template-columns: 1fr; text-align: center; }
+.toc-main-text { font-size: 15vw; margin-bottom: 40px; }
+.toc-grid { grid-template-columns: 1fr; }
+.hero-title { font-size: 25vw; }
+.about-container, .resume-container { grid-template-columns: 1fr; }
+.about-image { order: -1; margin-bottom: 30px; }
+.music-title { font-size: 3rem; text-align: center; }
+.music-collage { height: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+.poster-img { position: relative; top: auto !important; left: auto !important; transform: none !important; width: 45%; margin: 10px; }
+.arrow-svg { display: none; }
+.ui-design-text { font-size: 15vw; }
+.project-showcase { flex-direction: column; text-align: center; }
+.project-info { margin-bottom: 40px; }
+.tools-section { justify-content: center; }
+.animaliz-gallery-grid { grid-template-columns: 1fr; }
+.animaliz-center-laptops { flex-direction: column; }
+.web-dev-text { font-size: 12vw; flex-direction: column; gap: 10px; }
+.gallery-header h2 { font-size: 3.5rem; }
+.gallery-grid { grid-template-columns: 1fr; }
+.gallery-item { min-height: 300px; }
+.app-dev-text { font-size: 12vw; flex-direction: column; gap: 10px; }
+.app-title { font-size: 3.5rem; }
+.app-desc { font-size: 1.1rem; }
+.phone-grid { gap: 20px; }
+.phone-frame { width: 220px; height: 450px; }
+.cert-text { font-size: 12vw; flex-direction: column; gap: 10px; }
+.cert-grid { grid-template-columns: 1fr; }
+/* Work Project Responsive */
+.work-project-container { grid-template-columns: 1fr; text-align: center; }
+.work-project-section:nth-child(even) .work-project-container { direction: ltr; }
+.work-content h2 { font-size: 2.5rem; }
+.work-image-wrapper { height: 300px; }
+}
+</style>
+</head>
+<body>
+<!-- NAVIGATION BAR -->
+<nav class="top-nav">
+<a href="#" class="nav-item name">vasu kumar</a>
+<a href="#highlights" class="nav-item">Highlights</a>
+<a href="#work-projects" class="nav-item">Work</a>
+<a href="https://www.linkedin.com/in/vashu-kumar-173876303" target="_blank" class="nav-item">LinkedIn</a>
+<!-- UPDATED GET IN TOUCH BUTTON -->
+<a href="https://vashuai.free.nf/index.html/" target="_blank" class="nav-item">
+Get in touch <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+</nav>
+<!-- SECTION 1: HERO -->
+<header class="hero-section">
+<h1 class="hero-title">Portfolio</h1>
+<p class="hero-subtitle">BY VASU KUMAR</p>
+</header>
+<!-- SECTION 2: ABOUT -->
+<section class="about-section">
+<div class="about-container">
+<div class="about-text">
+<h1>vasu kumar</h1>
+<p>Hi, I'm Vasu Prajapati 👋
+I am a passionate Frontend Developer who loves building modern, responsive, and user-friendly web applications. I specialize in HTML, CSS, JavaScript, and continuously improve my skills by creating interactive and real-world projects.
+Along with frontend development, I actively use AI tools to improve productivity, generate creative solutions, and build smarter applications. I believe AI is the future, and I enjoy combining technology with intelligence to create innovative digital experiences.
+I also have basic knowledge of Data Analytics, where I work with data to understand patterns, analyze insights, and make data-driven decisions. I am learning how to transform raw data into meaningful information using analytical thinking and modern tools.
+🚀 My goal is to grow as a Full Stack Developer and build impactful tech products that solve real-world problems..</p>
+<div class="contact-info">
+<div class="contact-item"><i class="fa-solid fa-location-dot"></i><span>uttar pradesh, India</span></div>
+<div class="contact-item"><i class="fa-solid fa-envelope"></i><span>vashuku8077@gmail.com</span></div>
+<div class="contact-item"><i class="fa-solid fa-phone"></i><span>8077**3431</span></div>
+</div>
+</div>
+<div class="about-image">
+<img src="vashu.jpg" alt="vashu kumar">
+</div>
+</div>
+</section>
+<!-- SECTION 3: RESUME (TEXT) -->
+<section class="resume-section">
+<div class="resume-container">
+<div class="experience-col">
+<h2>Experience</h2>
+<div class="timeline-item">
+<div class="job-title">e commerce</div>
+<div class="job-role">data analyst</div>
+<span class="job-date">2024 - 2025</span>
+<p class="job-desc">Data Analyst | Freelance / Personal Projects
+2024 – Present
+
+Collected, cleaned, and analyzed datasets using Excel, SQL, and Python to identify trends and insights.
+
+Built interactive dashboards and reports using Power BI / Tableau for data visualization.
+
+Performed data cleaning, transformation, and exploratory data analysis (EDA) to improve data accuracy.
+
+Developed SQL queries to extract and manipulate data from databases.
+
+Generated reports to support business decision-making and performance analysis.
+
+Worked with large datasets to identify patterns, anomalies, and actionable insights.
+
+Skills Used:
+SQL, Excel, Python, Data Cleaning, Data Visualization, Power BI / Tableau.</p>
+</div>
+<div class="timeline-item">
+<div class="job-title">RandomTrees</div>
+<div class="job-role">frontend developer</div>
+<span class="job-date">2025</span>
+<p class="job-desc">Experience with website design and create</p>
+</div>
+<div class="timeline-item">
+<div class="job-title">2 YRS OF FREELANCE</div>
+<div class="job-role">craete website and build app</div>
+<span class="job-date">2024</span>
+<p class="job-desc">Developed and deployed multiple responsive websites and mobile applications using HTML, CSS, and JavaScript. Focused on creating user-friendly UI, smooth performance, and interactive features to enhance user experience.<br>website create<br>app development</p>
+</div>
+</div>
+<div class="right-col">
+<div class="education-col">
+<h2>Education</h2>
+<div class="edu-item">
+<div class="school-name">SDSSM inter collage</div>
+<div class="school-loc">kanker khera meerut</div>
+<div class="course-name">( commerce student )</div>
+<div class="edu-date">2022 - 2023</div>
+</div>
+<div class="edu-item">
+<div class="collage name">ccs university</div>
+<div class="collage-loc">meerut</div>
+<div class="course-name">( b.com finance )</div>
+<div class="edu-date">2023 - present</div>
+</div>
+</div>
+<div class="skills-col">
+<h2>Skills</h2>
+<div class="skills-grid">
+<img src="https://cdn.dribbble.com/userupload/33362931/file/original-544046b67edc7c0dc891daaca7619a83.png?format=webp&resize=400x300&vertical=center" alt="Ps" class="skill-logo-img">
+<img src="https://cdn-icons-png.flaticon.com/128/2111/2111341.png" alt="Ae" class="skill-logo-img">
+<img src="https://cdn-icons-png.flaticon.com/128/12222/12222589.png" alt="Ai" class="skill-logo-img">
+<img src="https://cdn-icons-png.flaticon.com/128/25/25657.png" alt="Figma" class="skill-logo-img">
+<img src="https://cdn-icons-png.flaticon.com/128/15465/15465638.png" alt="Pr" class="skill-logo-img">
+<img src="https://cdn-icons-png.flaticon.com/128/1051/1051277.png" alt="Canva" class="skill-logo-img">
+<img src="https://cdn-icons-png.flaticon.com/128/5968/5968242.png" alt="Blender" class="skill-logo-img">
+<img src="https://cdn-icons-png.flaticon.com/128/5968/5968350.png" alt="VS Code" class="skill-logo-img">
+<img src="data:image/png;base64,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" alt="VS Studio" class="skill-logo-img">
+<img src="https://cdn-icons-png.flaticon.com/128/16758/16758081.png" alt="Unreal" class="skill-logo-img">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- NEW SECTION: VISUAL RESUME (3D) -->
+<section class="visual-resume-section">
+<a href="#" target="_blank" style="text-decoration: none; color: inherit;">
+<div class="resume-card-wrapper">
+<div class="resume-card">
+<div class="resume-left">
+<div class="profile-pic" style="width: 100%; height: 200px; background: #333; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; color: #555;">
+<i class="fa-solid fa-user" style="font-size: 3rem;"></i>
+</div>
+<div>
+<h3>About Me</h3>
+<p>Hello my name is <strong>vasu kumar</strong>. My experience Worked as a Frontend Developer where I built responsive web pages and improved user experience using modern web technologies. Collaborated with the team to develop clean and efficient solutions. <strong>web development & app development</strong>. I can create my website and projects.</p>
+</div>
+<div class="info-group">
+<span class="info-label">Education</span>
+<div class="info-text">ccs university<br>Multimedia (2023-Present)</div>
+</div>
+<div class="info-group">
+<span class="info-label">Contact</span>
+<div class="info-text">vashuku8077@gmail.com<br>8077**3431</div>
+</div>
+<div>
+<h3>Skills</h3>
+<div class="info-text">advance excel<br>Visual studio<br>web design<br>app create</div>
+</div>
+<div>
+<h3>Software</h3>
+<div class="software-icons">
+<i class="fa-brands fa-adobe"></i>
+<i class="fa-solid fa-video"></i>
+<i class="fa-solid fa-pen-nib"></i>
+<i class="fa-brands fa-figma"></i>
+</div>
+</div>
+</div>
+<div class="resume-right">
+<h2>Work Experience</h2>
+<div class="exp-item">
+<h4>e commerce</h4>
+<span class="role">data analyst</span>
+<span class="date">apr 2024 - June 2025</span>
+<ul>
+<li>Manage and Supervise a team of Creatives.</li>
+<li>problem solving.</li>
+<li>Data Analyst | Freelance / Personal Projects
+2024 – Present
+
+Collected, cleaned, and analyzed datasets using Excel, SQL, and Python to identify trends and insights.
+
+Built interactive dashboards and reports using Power BI / Tableau for data visualization.
+
+Performed data cleaning, transformation, and exploratory data analysis (EDA) to improve data accuracy.
+
+Developed SQL queries to extract and manipulate data from databases.
+
+Generated reports to support business decision-making and performance analysis.
+
+Worked with large datasets to identify patterns, anomalies, and actionable insights.
+
+Skills Used:
+SQL, Excel, Python, Data Cleaning, Data Visualization, Power BI / Tableau..</li>
+</ul>
+</div>
+<div class="exp-item">
+<h4>zivame</h4>
+<span class="role">frontend developer</span>
+<span class="date">aug 2025 - jan 2026</span>
+<ul>
+<li>create a company website.</li>
+<li>vs code and using ai tools .</li>
+<li>Frontend Developer | Personal & Freelance Projects
+2024 – Present
+
+Developed responsive and interactive websites using HTML, CSS, and JavaScript.
+
+Built modern user interfaces with focus on performance, usability, and mobile responsiveness.
+
+Implemented dynamic features such as login systems, interactive components, and API integrations.
+
+Optimized websites for faster loading and better user experience.
+
+Collaborated with backend services such as Firebase for authentication and database management.
+
+Skills Used:
+HTML, CSS, JavaScript, Responsive Design, Firebase, UI Development.</li>
+</ul>
+</div>
+<div class="exp-item">
+<h4>freelancing</h4>
+<span class="role">web developer</span>
+<span class="date">2025</span>
+<ul>
+<li>Experience with website create.</li>
+<li>design and client projects.</li>
+<li>Freelance Website & App Developer
+Self-Employed | 2024 – Present
+
+Designed and developed custom websites and mobile applications for personal and freelance projects.
+
+Built web applications using JavaScript and modern frontend technologies.
+
+Developed mobile apps using Flutter and Firebase backend integration.
+
+Implemented features such as authentication systems, real-time databases, and API integrations.
+
+Delivered user-friendly UI/UX designs and optimized application performance.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="resume-footer">
+<div style="font-weight: 600; font-size: 1.2rem;">web and apps</div>
+<div class="qr-placeholder">
+<i class="fa-solid fa-qrcode" style="font-size: 2rem;"></i>
+</div>
+<div style="font-weight: 600; font-size: 1.2rem;">Selected works 2022-2025</div>
+</div>
+</div>
+</a>
+</section>
+<!-- SECTION: TABLE OF CONTENTS -->
+<section class="toc-section">
+<div class="toc-container">
+<div class="toc-title-box">
+<h2 class="toc-main-text">Table of Contents</h2>
+</div>
+<div class="toc-grid">
+<a href="#ui-design" class="toc-btn"><div class="number">01</div><span>create website</span></a>
+<a href="#social-media" class="toc-btn"><div class="number">02</div><span>Web Development</span></a>
+<a href="#web-dev" class="toc-btn"><div class="number">03</div><span>app Development</span></a>
+<a href="#poster" class="toc-btn"><div class="number">04</div><span>show case project</span></a>
+<a href="#app-dev" class="toc-btn"><div class="number">05</div><span>------</span></a>
+<a href="#certificate" class="toc-btn"><div class="number">06</div><span>------</span></a>
+</div>
+</div>
+</section>
+<!-- ========================================= -->
+<!-- NEW SECTION: WORK PROJECTS (FULL SCREEN) -->
+<!-- ========================================= -->
+<div id="work-projects">
+<!-- Project 1: Shivam Kumar Portfolio -->
+<section class="work-project-section">
+<div class="work-project-container">
+<div class="work-content">
+<h2> Portfolio website</h2>
+<p>I designed and developed my personal portfolio website to professionally showcase my skills, projects.</p>
+<a href="https://shivamkumar.ct.ws/index.html/?i=1" target="_blank" class="work-btn">View Project <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+<div class="work-image-wrapper">
+<img src="https://cdn.dribbble.com/userupload/34116204/file/original-0baa435d739a15b1ecc612fd4eb332f4.png?format=webp&resize=640x480&vertical=center" alt="Portfolio Website">
+</div>
+</div>
+</section>
+<!-- Project 2: Shivani Beauty -->
+<section class="work-project-section">
+<div class="work-project-container">
+<div class="work-content">
+<h2> Beauty Parlour website</h2>
+<p>I designed and developed a fully responsive Parlour Website to showcase beauty and grooming services in a professional and attractive manner. </p>
+<a href="https://shivanibeauty.gt.tc/index.html/?i=1" target="_blank" class="work-btn">View Project <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+<div class="work-image-wrapper">
+<img src="https://cdn.dribbble.com/userupload/24195078/file/original-3910ad51a81df53428d5975800d9b256.jpg?format=webp&resize=400x300&vertical=center" alt="Beauty Parlour Website">
+</div>
+</div>
+</section>
+<!-- Project 3: CarBoost Game -->
+<section class="work-project-section">
+<div class="work-project-container">
+<div class="work-content">
+<h2>CarBoost Web Game</h2>
+<p>Developed an interactive Car Boost Game with smooth controls and dynamic gameplay mechanics. Implemented features like speed boost, score tracking. 🚗🔥.</p>
+<a href="https://carboost.ct.ws/index.html/?i=1" target="_blank" class="work-btn">Play Game <i class="fa-solid fa-gamepad"></i></a>
+</div>
+<div class="work-image-wrapper">
+<img src="https://cdn.dribbble.com/userupload/14996974/file/original-9a66c58899a0934244e01866d5d4f15e.png?crop=0x0-2800x2100&format=webp&resize=400x300&vertical=center" alt="Car Game">
+</div>
+</div>
+</section>
+<!-- Project 4: TaskApp (Ghost Game) -->
+<section class="work-project-section">
+<div class="work-project-container">
+<div class="work-content">
+<h2>Ghost Web Game</h2>
+<p>Developed a spooky Ghost Web Game featuring interactive gameplay and smooth animations. Implemented collision detection, score trackings. 👻.</p>
+<a href="https://taskapp.free.nf/index.html/?i=2" target="_blank" class="work-btn">Play Game <i class="fa-solid fa-ghost"></i></a>
+</div>
+<div class="work-image-wrapper">
+<img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=800&q=80" alt="Ghost Game">
+</div>
+</div>
+</section>
+<!-- Project 5: Vashu AI -->
+<section class="work-project-section">
+<div class="work-project-container">
+<div class="work-content">
+<h2>Vashu AI Hub</h2>
+<p>A centralized profile aggregator that connects all social media accounts and AI tools into one accessible, futuristic interface. The ultimate hub for digital identity.</p>
+<a href="https://vashuai.free.nf/index.html/" target="_blank" class="work-btn">Explore Hub <i class="fa-solid fa-link"></i></a>
+</div>
+<div class="work-image-wrapper">
+<img src="https://cdn.dribbble.com/userupload/17833974/file/original-3444e606f074e1b886ceba67e11340a1.png?format=webp&resize=400x300&vertical=center" alt="AI Hub">
+</div>
+</div>
+</section>
+</div>
+<!-- SECTION: PERSONAL PROJECTS (VIDEO) -->
+<section class="projects-section">
+<div class="section-header">
+<div class="section-number">01</div>
+<h2 class="section-title">Personal Projects</h2>
+</div>
+<div class="video-grid">
+<div class="phone-mockup"><video loop muted playsinline><source src="https://cdn.dribbble.com/userupload/8435670/file/original-4539fd75b85b41de855f807d8e852b1f.mp4" type="video/mp4"></video></div>
+<div class="phone-mockup"><video loop muted playsinline><source src="https://cdn.dribbble.com/userupload/45226834/file/ceb484a8d36b5249abed36ecab0da494.mp4" type="video/mp4"></video></div>
+<div class="phone-mockup"><video loop muted playsinline><source src="https://cdn.dribbble.com/userupload/46754641/file/088f241985035dfa46154fc4c4cdc44b.mp4" type="video/mp4"></video></div>
+</div>
+</section>
+<!-- SECTION: SPORTS -->
+<section class="sports-section">
+<div class="sports-banner"><h2>web design</h2></div>
+<div class="sports-grid">
+<div class="sports-item"><img src="https://cdn.dribbble.com/userupload/46805353/file/5dd7d64a22389176954d38c4b6336997.png?format=webp&resize=400x300&vertical=center" alt="Sport 1"></div>
+<div class="sports-item"><img src="https://cdn.dribbble.com/userupload/45526508/file/281c361e3fb08c0be5f989024a11fd09.jpeg?format=webp&resize=400x300&vertical=center" alt="Sport 2"></div>
+<div class="sports-item"><img src="https://cdn.dribbble.com/userupload/9071383/file/original-3459697e500ac46b2a043c6dc471cb8d.png?format=webp&resize=400x300&vertical=center" alt="Sport 3"></div>
+<div class="sports-item"><img src="https://cdn.dribbble.com/userupload/46800592/file/e0ded06293a6113cca17f6e491c6a444.png?format=webp&resize=400x300&vertical=center" alt="Sport 4"></div>
+<div class="sports-item"><img src="https://cdn.dribbble.com/userupload/46603238/file/389f493505d9d3400cf235abc8badf89.png?format=webp&resize=400x300&vertical=center" alt="Sport 5"></div>
+<div class="sports-item"><img src="https://cdn.dribbble.com/userupload/46200078/file/afa0fb302c50535f18cb53e2c5f82c8b.jpg?format=webp&resize=400x300&vertical=center" alt="Sport 6"></div>
+<div class="sports-item"><img src="https://cdn.dribbble.com/userupload/46806203/file/6cfc7d9e382018046d79dd7a4ffdfc30.png?format=webp&resize=400x300&vertical=center" alt="Sport 7"></div>
+<div class="sports-item"><img src="https://cdn.dribbble.com/userupload/46791264/file/a6d9dc2f24f6a151e8ab0bece804e147.png?format=webp&resize=400x300&vertical=center" alt="Sport 8"></div>
+</div>
+</section>
+<!-- SECTION: MUSIC POSTERS -->
+<section class="music-section">
+<div class="music-header">
+<h2 class="music-title">website and app poster</h2>
+<svg class="arrow-svg" viewBox="0 0 100 60"><path d="M10,10 Q50,50 80,40" /><path d="M70,35 L80,40 L75,50" /></svg>
+</div>
+<div class="web-collage">
+<img src="https://cdn.dribbble.com/userupload/34954667/file/original-98207d54e6d771b28b9153a10cc6ee45.jpg?format=webp&resize=400x300&vertical=center" class="poster-img p1" alt="Music 1">
+<img src="https://cdn.dribbble.com/userupload/44750661/file/ef42a71b6d4444f3fcd80e5046e0e5dd.jpg?format=webp&resize=400x300&vertical=center" class="poster-img p2" alt="Music 2">
+<img src="https://cdn.dribbble.com/userupload/46060008/file/5cd65f56fa41a2439f2e3106d4f7574d.png?format=webp&resize=400x300&vertical=center" class="poster-img p3" alt="Music 3">
+<img src="https://cdn.dribbble.com/userupload/45922022/file/0283cec202301d2ce43b62936e0e7686.jpg?crop=0x0-2667x2000&format=webp&resize=400x300&vertical=center" class="poster-img p4" alt="Music 4">
+<img src="https://cdn.dribbble.com/userupload/15891250/file/original-0395037130730a915711bb4e04073b65.jpg?format=webp&resize=400x300&vertical=center" class="poster-img p5" alt="Music 5">
+<img src="https://cdn.dribbble.com/userupload/17116063/file/original-ccd1ca3afee9dda19c82f60924858504.png?format=webp&resize=400x300&vertical=center" class="poster-img p6" alt="Music 6">
+<img src="https://cdn.dribbble.com/userupload/17116063/file/original-ccd1ca3afee9dda19c82f60924858504.png?format=webp&resize=400x300&vertical=center" class="poster-img p7" alt="Music 7">
+<img src="https://cdn.dribbble.com/userupload/15923160/file/original-96bc453394314c36b8e855c20110d97f.png?format=webp&resize=400x300&vertical=center" class="poster-img p8" alt="Music 8">
+</div>
+</section>
+<!-- SECTION: 01 | UI DESIGN TITLE -->
+<section class="ui-design-title-section" id="ui-design">
+<h1 class="ui-design-text">01 <span>|</span> create website</h1>
+</section>
+<!-- SECTION: FULL SCREEN PROJECTS (4 Sections) -->
+<section class="fullscreen-project">
+<div class="fullscreen-video-wrapper">
+<video id="video1" loop>
+<source src="https://cdn.dribbble.com/userupload/15312959/file/original-e9405066287d3bc180962dc9cc1cf525.mp4" type="video/mp4">
+</video>
+<div class="play-btn-overlay" onclick="togglePlay('video1', this)"><i class="fa-solid fa-play"></i></div>
+</div>
+</section>
+<section class="fullscreen-project">
+<div class="fullscreen-image-wrapper">
+<img src="https://cdn.dribbble.com/userupload/8625664/file/original-2cbbe8ad1f35f479c44f1885bf692b50.png?resize=1504x1128&vertical=center" alt="UI Design Project 1">
+</div>
+</section>
+<section class="fullscreen-project">
+<div class="fullscreen-video-wrapper">
+<video id="video2" loop>
+<source src="https://cdn.dribbble.com/userupload/10427858/file/original-9e56082d32a5cd333879cb09db63e337.mp4" type="video/mp4">
+</video>
+<div class="play-btn-overlay" onclick="togglePlay('video2', this)"><i class="fa-solid fa-play"></i></div>
+</div>
+</section>
+<section class="fullscreen-project">
+<div class="fullscreen-image-wrapper">
+<img src="https://cdn.dribbble.com/userupload/46796744/file/fd789c2bb71c30dbc6819cc35bfb51e2.png?format=webp&resize=400x300&vertical=center" alt="UI Design Project 2">
+</div>
+</section>
+<!-- SECTION: 03 | WEBSITE DEVELOPMENT -->
+<section class="web-dev-title-section" id="web-dev">
+<h1 class="web-dev-text">02 <span>|</span> WEBSITE DEVELOPMENT</h1>
+</section>
+<!-- Project 1: KUMPUL BOCAH -->
+<section class="project-showcase">
+<div class="project-info">
+<h3>Website</h3>
+<h2>e commerce</h2>
+<p>e commerce – is a web-based project that focuses on nostalgic Indonesian snacks and classic toys. The website was developed as an e-commerce platform with both user-facing and admin-side functionalities.</p>
+<p>The user interface design was created collaboratively with a teammate, while I was responsible for implementing the interface into a functional website and developing the system features.</p>
+<p>This website includes a shopping cart system, product management, and an admin dashboard. Users can browse products, add items to the cart, and manage their orders. On the admin side, the system provides full CRUD (Create, Read, Update, Delete) functionality for managing products, categories, and transaction data through a structured dashboard.</p>
+<p>The project was built with a focus on responsive layout, usability, and clear information hierarchy, ensuring a smooth user experience across different devices.</p>
+<div class="tools-section">
+TOOLS :
+<div class="tools-icons">
+<i class="fa-brands fa-laravel"></i>
+<i class="fa-solid fa-code"></i>
+<i class="fa-solid fa-database"></i>
+</div>
+</div>
+</div>
+<div class="project-image-container">
+<div style="text-align:center;">
+<img src="https://cdn.dribbble.com/userupload/39349637/file/original-61c81ff6cf6bf7bd9b21044403a546cb.png?format=webp&resize=400x300&vertical=center" alt="Kumpul Bocah Website" class="laptop-mockup">
+<div class="wooden-stand"></div>
+</div>
+</div>
+</section>
+<!-- Kumpul Bocah Main Pages Gallery -->
+<section class="main-pages-section">
+<div class="gallery-header">
+<h3>Main Pages</h3>
+<h2>WEBSITE KUMPUL BOCAH</h2>
+</div>
+<div class="gallery-grid">
+<div class="gallery-item"><img src="https://cdn.dribbble.com/userupload/9643917/file/original-d8640102e10b13327b27f5cb744116ef.png?format=webp&resize=640x480&vertical=center" alt="Page 1"></div>
+<div class="gallery-item"><img src="https://cdn.dribbble.com/userupload/16601754/file/original-732c784c0d7ff1fb8d36f57ae0929697.png?crop=0x0-4800x3600&format=webp&resize=400x300&vertical=center" alt="Page 2"></div>
+<div class="gallery-item"><img src="https://cdn.dribbble.com/userupload/36197007/file/original-6c82c5a150aa03cc5aeba832ce25aa62.png?format=webp&resize=400x300&vertical=center" alt="Page 3"></div>
+<div class="gallery-item"><img src="https://cdn.dribbble.com/userupload/17743980/file/original-cb91db258c558443f5dddefea31c77d6.png?format=webp&resize=400x300&vertical=center" alt="Page 4"></div>
+<div class="gallery-item"><img src="https://cdn.dribbble.com/userupload/43548259/file/original-aa106480dcccee734d581709283ff32d.png?format=webp&resize=400x300&vertical=center" alt="Page 5"></div>
+<div class="gallery-item"><img src="https://cdn.dribbble.com/userupload/41570584/file/original-1193673df1a0a2353c6e94ed6d128667.jpeg?format=webp&resize=400x300&vertical=center" alt="Page 6"></div>
+</div>
+</section>
+<!-- SECTION: 05 | APP DEVELOPMENT -->
+<section class="app-dev-title-section" id="app-dev">
+<h1 class="app-dev-text">03 <span>|</span> APP DEVELOPMENT</h1>
+</section>
+<!-- Project 1: TODO APPS -->
+<section class="app-showcase">
+<h2 class="app-title">TODO APPS</h2>
+<p class="app-desc">A task-management mobile application that enables users to create, update, and manage assignments with deadlines using a simple CRUD system. Designed with a clean, modern interface to support productivity and ease of use.</p>
+<div class="phone-grid">
+<div class="phone-frame">
+<img src="https://cdn.dribbble.com/userupload/44879468/file/fdc5341b104ae90fe14ed1577d344cc4.png?format=webp&resize=400x300&vertical=center" alt="Todo App 1">
+</div>
+<div class="phone-frame">
+<img src="https://cdn.dribbble.com/userupload/44879468/file/fdc5341b104ae90fe14ed1577d344cc4.png?format=webp&resize=400x300&vertical=center" alt="Todo App 2">
+</div>
+<div class="phone-frame">
+<img src="https://cdn.dribbble.com/userupload/42320627/file/original-980237ad1860d20ddf734637ce75dbab.png?format=webp&resize=400x300&vertical=center" alt="Todo App 3">
+</div>
+<div class="phone-frame">
+<img src="https://cdn.dribbble.com/userupload/28667074/file/original-12ade6796e8649d8537b988559627527.png?format=webp&resize=400x300&vertical=center" alt="Todo App 4">
+</div>
+</div>
+<div class="app-tools">
+Tools Used
+<div class="tools-icons">
+<i class="fa-brands fa-flutter"></i>
+<i class="fa-solid fa-code"></i>
+</div>
+</div>
+</section>
+<!-- Project 2: DuniAR (AR APPS) -->
+<section class="app-showcase green-bg">
+<h2 class="app-title">DuniAR (AR APPS)</h2>
+<p class="app-desc">is an augmented-reality educational app that introduces users to traditional Indonesian musical instruments — this edition focuses on Java. By scanning markers, users can view 3D instrument models and learn how they are played in an interactive way. The app is built using Unity, Vuforia Engine, and Visual Studio Code.</p>
+<div class="phone-grid">
+<div class="phone-frame">
+<img src="https://cdn.dribbble.com/userupload/17456362/file/original-1939c1636401db0ce252cbb8113c3915.png?format=webp&resize=640x480&vertical=center" alt="DuniAR 1">
+</div>
+<div class="phone-frame">
+<img src="https://cdn.dribbble.com/userupload/19429614/file/original-c3adc5c35e6a5ddd32c42d60783f3d5c.png?format=webp&resize=400x300&vertical=center" alt="DuniAR 2">
+</div>
+<div class="phone-frame">
+<img src="https://cdn.dribbble.com/userupload/25131342/file/still-086fba5b45c96926595acccf63f34d14.png?format=webp&resize=400x300&vertical=center" alt="DuniAR 3">
+</div>
+<div class="phone-frame">
+<img src="https://cdn.dribbble.com/userupload/14437659/file/original-54567ede96592c14d0ff6935af5b1ba8.png?format=webp&resize=400x300&vertical=center" alt="DuniAR 4">
+</div>
+</div>
+<div class="app-tools">
+Tools Used
+<div class="tools-icons">
+<i class="fa-solid fa-cube"></i>
+<i class="fa-solid fa-vr-cardboard"></i>
+<i class="fa-solid fa-code"></i>
+</div>
+</div>
+</section>
+<!-- SECTION: 06 | show case project -->
+<section class="cert-title-section" id="certificate">
+<h1 class="cert-text">06 <span>|</span> show case project</h1>
+</section>
+<section class="cert-gallery-section">
+<div class="cert-grid">
+<div class="cert-item"><img src="https://cdn.dribbble.com/userupload/46714085/file/efb0319431613295f50dfb2487293eed.png?resize=1504x1128&vertical=center" alt="Cert 1"></div>
+<div class="cert-item"><img src="https://cdn.dribbble.com/userupload/9080794/file/original-3941bc9c46a51f3039d7c9f478af55e6.jpg?resize=1024x683&vertical=center" alt="Cert 2"></div>
+<div class="cert-item"><img src="https://cdn.dribbble.com/userupload/10197479/file/original-0f5cac8c4e668443967ee0e50fdbcac6.png?resize=1504x1128&vertical=center" alt="Cert 3"></div>
+<div class="cert-item"><img src="https://cdn.dribbble.com/userupload/17790536/file/original-acca41033882c8f7c7e9b0a3a41b1db0.png?resize=1504x1128&vertical=center" alt="Cert 4"></div>
+</div>
+</section>
+<!-- FULL SCREEN VIDEO SECTIONS (3) -->
+<section class="fullscreen-video-interactive">
+<video id="fullVideo1" onclick="toggleInteractiveVideo(this)">
+<source src="https://cdn.dribbble.com/userupload/44991592/file/88b3dc2f92520567ccf6d66d4ebe84fe.mp4" type="video/mp4">
+</video>
+<div class="interactive-play-btn" onclick="startInteractiveVideo('fullVideo1', this)">
+<i class="fa-solid fa-play"></i>
+</div>
+</section>
+<section class="fullscreen-video-interactive">
+<video id="fullVideo2" onclick="toggleInteractiveVideo(this)">
+<source src="https://cdn.dribbble.com/userupload/46790082/file/174c229d3fd4d12fe50e6402c99b3084.mp4" type="video/mp4">
+</video>
+<div class="interactive-play-btn" onclick="startInteractiveVideo('fullVideo2', this)">
+<i class="fa-solid fa-play"></i>
+</div>
+</section>
+<section class="fullscreen-video-interactive">
+<video id="fullVideo3" onclick="toggleInteractiveVideo(this)">
+<source src="https://cdn.dribbble.com/userupload/12681521/file/original-3aa76f0a297cdd1d5cc4387f010c2538.mp4" type="video/mp4">
+</video>
+<div class="interactive-play-btn" onclick="startInteractiveVideo('fullVideo3', this)">
+<i class="fa-solid fa-play"></i>
+</div>
+</section>
+<script>
+function togglePlay(videoId, btnElement) {
+var video = document.getElementById(videoId);
+if (video.paused) {
+video.play();
+video.muted = false;
+btnElement.classList.add('hidden');
+} else {
+video.pause();
+btnElement.classList.remove('hidden');
+}
+}
+function startInteractiveVideo(videoId, btnElement) {
+var video = document.getElementById(videoId);
+video.play();
+video.muted = false;
+video.controls = true;
+btnElement.classList.add('hidden');
+}
+function toggleInteractiveVideo(video) {
+if (video.paused) {
+video.play();
+} else {
+video.pause();
+}
+}
+document.addEventListener("DOMContentLoaded", function() {
+const videos = document.querySelectorAll('.phone-mockup video');
+const observerOptions = { root: null, rootMargin: '0px', threshold: 0.5 };
+const observer = new IntersectionObserver((entries, observer) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) { entry.target.play(); }
+else { entry.target.pause(); }
+});
+}, observerOptions);
+videos.forEach(video => { observer.observe(video); });
+});
+</script>
+</body>
+</html>
